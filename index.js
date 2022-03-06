@@ -11,23 +11,42 @@ const game = new Game(() => Promise.resolve({ apiKey: API_KEY }));
 game.connect("jEDZjhqoI4iAKolF\\OrigamiUSA"); // replace with your spaceId of choice
 game.subscribeToConnection((connected) => console.log("connected?", connected));
 
-//images left at index 0, right at 1
+//images left at index 0, right at 1, up at 2, down at 3
 //walk left test at 2
 let pokeball =
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/tY3NKLnSH19EEstnaZ6Ix5";
 let Charmander =
-  ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/jVCkcZ3RL8P82qC13Uc3vL",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1O95vgKdt55RUaccK747Yr",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/993iEo4Dao7WzeGEvQP7Iu",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/RAn23hyaDeIzpk08B8JCCx"
+  ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/Gs2JPhCJJXGzFEegABNp7g",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/nYQ0cEdRlQdMs6fu7FXVZd",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/Tp75dv75IIAWdanFsPfxWG",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/Del3VK7aCJhOUXHacVVDJl",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/SWCKU6WP9Eky7yoIeOGqtL",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/O4Ulzd5by5VNdbbKDIrFBj",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1hHwGrACK86OwGZjcrSC2W",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/Rwv9YE7UjV42VFHBnmEvee"
+
 ];
-let Squirtle =
+let Squirtle =  //lots of placeholders
   ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj"
+  
 ];
-let Bulbasaur =
+let Bulbasaur =     //lots of placeholders
   ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/d02kXkvXlC2WGgOrjfoO2v",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1f9c898TFKMl1fM2QSkN3w"
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1f9c898TFKMl1fM2QSkN3w",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj"
+  
 ];
 
 const mapId = "Origami Cafe";
@@ -35,10 +54,10 @@ const mapId = "Origami Cafe";
 //get new x and y for pokemon based on movement
 function getNewPokeLocation(x, y, direction){
   if(direction == 1 || direction ==2 ){     //down
-    return [x, y-1, 0];
+    return [x, y-1, 3];
   }
   if(direction == 3 || direction ==4 ){   //up
-    return [x, y+1, 0];
+    return [x, y+1, 2];
   }
   if(direction == 5 || direction ==6 ){   //left
     return [x+1, y, 0];
@@ -57,8 +76,8 @@ function movePokemon(context){
   let imageLocation = eval(context.player.affiliation)[location[2]];
 
   //check if image should alternate
-  if(game.getObject(objectId).obj.customState == 'normal' && eval(context.player.affiliation).length >1){   //only some of the images have walking sprites, checking for that
-    imageLocation = eval(context.player.affiliation)[location[2]+2];
+  if(game.getObject(objectId).obj.customState == 'normal' && context.player.affiliation == 'Charmander'){   //only charmander has all the sprites, check for that
+    imageLocation = eval(context.player.affiliation)[location[2]+4];
      state = 'walking'
   }
 
