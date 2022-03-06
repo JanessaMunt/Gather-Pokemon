@@ -12,11 +12,14 @@ game.connect("jEDZjhqoI4iAKolF\\OrigamiUSA"); // replace with your spaceId of ch
 game.subscribeToConnection((connected) => console.log("connected?", connected));
 
 //images left at index 0, right at 1
+//walk left test at 2
 let pokeball =
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/tY3NKLnSH19EEstnaZ6Ix5";
 let Charmander =
   ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/jVCkcZ3RL8P82qC13Uc3vL",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1O95vgKdt55RUaccK747Yr"
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1O95vgKdt55RUaccK747Yr",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/993iEo4Dao7WzeGEvQP7Iu",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/RAn23hyaDeIzpk08B8JCCx"
 ];
 let Squirtle =
   ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
@@ -50,7 +53,16 @@ function movePokemon(context){
   let objectId = context.playerId +"Pokemon";
   let location = getNewPokeLocation(context.player.x, context.player.y, context.player.direction);
   //console.log(eval(context.player.affiliation));
+  let state = 'normal';
   let imageLocation = eval(context.player.affiliation)[location[2]];
+
+  //check if image should alternate
+  if(game.getObject(objectId).obj.customState == 'normal' && eval(context.player.affiliation).length >1){   //only some of the images have walking sprites, checking for that
+    imageLocation = eval(context.player.affiliation)[location[2]+2];
+     state = 'walking'
+  }
+
+
   let obj = {
     id: objectId,
     normal: imageLocation,
@@ -58,8 +70,11 @@ function movePokemon(context){
     y: location[1],
     type: 0,
     width: 1,
-    height: 1
+    height: 1,
+    customState: state
   }
+
+
   //add object
   setTimeout(() => {
   game.setObject('Origami Cafe', objectId, obj);
@@ -87,6 +102,7 @@ function setUp(){
         width: 1, 
         height: 1, 
         previewMessage: names[i], // this is what shows up in the press x bubble
+
       };
 
     console.log("setting the object");
@@ -119,7 +135,7 @@ function pokemon(){
 
   game.subscribeToEvent("playerMoves", (data, context) =>{    //watch for movements
     if(context.player.affiliation != ''){
-      console.log(game.getObject(context.playerId + "Pokemon") == undefined);
+     // console.log(game.getObject(context.playerId + "Pokemon"));
       //move object
         movePokemon(context);
     }
