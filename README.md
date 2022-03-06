@@ -7,4 +7,5 @@ Change startX and startY to the coordinates you would like the pokeballs to spaw
 
 To run:
 npm install
+
 node index.js
