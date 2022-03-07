@@ -7,6 +7,10 @@ game.connect("jEDZjhqoI4iAKolF\\OrigamiUSA"); // replace with your spaceId
 game.subscribeToConnection((connected) => console.log("connected?", connected));
 const mapId = "Origami Cafe"; //replace with your map of choice 
 
+//starting x and y for the leftmost pokeball, the rest of the pokeballs will spawn to the right of the first one
+const startX = 27;
+const startY = 20;
+
 //images left at index 0, right at 1, up at 2, down at 3, then repeats with alternate forms for each direction
 //this part looks gross, someone please tell me how to make it less gross if I wana add the other 3024982049 pokemon
 let pokeball =
@@ -21,15 +25,15 @@ let Charmander =
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/1hHwGrACK86OwGZjcrSC2W",
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/Rwv9YE7UjV42VFHBnmEvee"
 ];
-let Squirtle =  //lots of placeholders
-  ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ggYDMTlJdsJGyFLA35O5pG", 
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/ohkujdHjBLKDcJQP2cWNHj"
+let Squirtle =  
+  ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/KjJ2cG5Dh7PpWNlu3rD7Lp", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/xx4nBSPOrygFupC430IGfz",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/s4HyLTU8JGESpfRhxunyFE", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/nCdmyDjwaPTzCBYoq8zEBm",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/bnBagtD5yKyrQTnQWxXWrf", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/xx4nBSPOrygFupC430IGfz",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/J1edvVDv9xnvEN7Jnwy9ii", 
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/oEW3B4ac77eaCCXNU3X2Wc"
 ];
 let Bulbasaur =     //lots of placeholders
   ["https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/jEDZjhqoI4iAKolF/d02kXkvXlC2WGgOrjfoO2v",
@@ -68,7 +72,7 @@ function movePokemon(context){
 
   //check if image should alternate
   if(game.getObject(objectId) != undefined){    //something something this gets mad at me if this is undefined and i try to move on
-    if(game.getObject(objectId).obj.customState == 'normal' && context.player.affiliation == 'Charmander'){   //only charmander has all the sprites, check for that, remove second half if all your sprites have all 8 images
+    if(game.getObject(objectId).obj.customState == 'normal' && context.player.affiliation != 'Bulbasaur'){   //only charmander has all the sprites, check for that, remove second half if all your sprites have all 8 images
       imageLocation = eval(context.player.affiliation)[location[2]+4];
       state = 'walking'
     }
@@ -93,10 +97,6 @@ function movePokemon(context){
 
 function setUp(){
   let names = ["Charmander", "Squirtle", "Bulbasaur", "Put Away"];     //array with values, can add more pokemon if you have loaded in sprites
-
-  //starting x and y for top left pokeball, the rest of the pokeballs will spawn to the right of the first one
-  let startX = 27;
-  let startY = 20;
 
   setTimeout(() => {
     for(let i=0; i<names.length; i++){
