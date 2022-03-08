@@ -30,7 +30,7 @@ let Squirtle =
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/KjJ2cG5Dh7PpWNlu3rD7Lp",  
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/s4HyLTU8JGESpfRhxunyFE", 
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/nCdmyDjwaPTzCBYoq8zEBm",
-  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/xx4nBSPOrygFupC430IGfz",
+  "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/DaTUV0NGxOf4YWYbKMcYB5",
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/bnBagtD5yKyrQTnQWxXWrf", 
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/J1edvVDv9xnvEN7Jnwy9ii", 
   "https://cdn.gather.town/storage.googleapis.com/gather-town.appspot.com/uploads/UvXBVt6vw9JZoqDn/oEW3B4ac77eaCCXNU3X2Wc"
