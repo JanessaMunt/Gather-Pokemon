@@ -16,8 +16,10 @@
   },
   "homepage": "https://github.com/JanessaMunt/Gather-Pokemon#readme",
   "dependencies": {
-    "@gathertown/gather-game-client": "^32.0.0",
     "isomorphic-ws": "^4.0.1",
     "ws": "^8.5.0"
+  },
+  "devDependencies": {
+    "@gathertown/gather-game-client": "^35.1.0"
   }
 }
