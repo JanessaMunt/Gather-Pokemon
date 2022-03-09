@@ -11,4 +11,4 @@ In index.js change ```spaceId```, ``mapId``, ```startX``` and ```startY``` to yo
 run ```npm install```
 
 ## Running
-type ```node index.js``` in the terminal
+run ```node index.js``` 
