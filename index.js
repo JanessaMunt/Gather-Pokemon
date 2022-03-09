@@ -2,10 +2,11 @@ const { API_KEY } = require("./api-key");
 const { Game, convertCoordsToBBoxes } = require("@gathertown/gather-game-client");
 const { setgroups } = require("process");
 global.WebSocket = require("isomorphic-ws");
-const game = new Game(() => Promise.resolve({ apiKey: API_KEY }));
-game.connect("jEDZjhqoI4iAKolF\\OrigamiUSA"); // replace with your spaceId
+const SPACE_ID ="jEDZjhqoI4iAKolF\\OrigamiUSA"; // replace with your spaceId of choice
+const mapId = "Origami Cafe" //replace with your map of choice 
+const game = new Game(SPACE_ID , () => Promise.resolve({apiKey: API_KEY}));
+game.connect(); 
 game.subscribeToConnection((connected) => console.log("connected?", connected));
-const mapId = "Origami Cafe"; //replace with your map of choice 
 
 //starting x and y for the leftmost pokeball, the rest of the pokeballs will spawn to the right of the first one
 const startX = 27;
