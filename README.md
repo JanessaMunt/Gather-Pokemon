@@ -6,7 +6,7 @@ have NodeJS and npm installed
 
 Add a file named api-key.js with ```exports.API_KEY = "your api key here";```
 
-In index.js change ```spaceId```, ```startX``` and ```startY``` to your own
+In index.js change ```spaceId```, ``mapId``, ```startX``` and ```startY``` to your own
 
 run ```npm install```
 
